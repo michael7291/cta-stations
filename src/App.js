@@ -36,13 +36,14 @@ function App() {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-     setArrivalTimes(data.ctatt.eta),
+  //   setArrivalTimes(data.ctatt.eta),
      setStationName(data.ctatt.eta[0].staNm)
   })
   }
 
   function calculateArrivalTime (value){
-    let currentDate = new Date()
+    var currentDate = new Date();
+    
   }
 
   return (
@@ -56,7 +57,7 @@ function App() {
               {stations.map(item => <li> <button onClick={() => handleClick(item.STOPS[0].MAP_ID)} key={item.STATION_NAME}>{item.STATION_NAME}</button></li>)}
            </ol>
            </div>
-           <div class="right_container"><h1>STATION: {stationName}</h1><div>{arrivalTimes.map(item => <li key={item.stpId}>{item.stpDe} {item.arrT}</li>)}</div></div>
+           <div class="right_container"><div>{arrivalTimes.map(item => <li key={item.stpId}>{item.stpDe} {item.arrT}</li>)}</div></div>
             </Route>
             <Route path="/">
               <PageTitle title="home"/>
